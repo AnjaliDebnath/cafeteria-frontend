@@ -142,6 +142,7 @@ const Dishes = () => {
             />
             <h2 className="text-xl font-semibold">{dish.dish_name}</h2>
             <p className="text-gray-600 mt-2">{dish.description}</p>
+            <p className="text-red-600 mt-2">Sold by : {dish.counter}</p>
             <p className="text-lg font-bold mt-2">${dish.price.toFixed(2)}</p>
             <p className="text-sm text-gray-500 mt-1">Category: {dish.category}</p>
             <p

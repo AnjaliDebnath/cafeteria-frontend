@@ -7,7 +7,7 @@ const LINK = "http://localhost:5050";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
-  console.log(cartItems);
+  // console.log(cartItems);
   const dispatch = useDispatch();
   const [cart, setCart] = useState([]);
 
@@ -15,7 +15,7 @@ const Cart = () => {
     const fetchCart = async () => {
       try {
         const token = localStorage.getItem("accessToken");
-        console.log(token);
+        // console.log(token);
 
         if (!token) {
           console.error("No token found");
@@ -28,7 +28,7 @@ const Cart = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-        console.log(response.data.cart);
+        // console.log(response.data.cart);
         setCart(response.data.cart);
 
         // dispatch(setCart(response.cart));
@@ -47,16 +47,20 @@ const Cart = () => {
     try {
       // Fetch the token from local storage
       const token = localStorage.getItem("accessToken");
+      // console.log(token);
+      
       if (!token) {
         console.error("No token found");
         return;
       }
+console.log(itemId);
 
       // Remove item from backend
-      await axios.delete(`${LINK}/cart/${itemId}`, {
+      await axios.delete(`${LINK}/cart/delete/${itemId}`, {
+        
         headers: { Authorization: `Bearer ${token}` },
       });
-      dispatch(removeItem(itemId)); 
+      dispatch(removeItem({ _id: itemId })); 
     } catch (error) {
       console.error(
         "Error removing item:",
@@ -86,6 +90,7 @@ const Cart = () => {
               (
               <div
                 key={index}
+                
                 className="flex items-center justify-between border-b pb-4"
               >
                 <div className="flex items-center gap-4">

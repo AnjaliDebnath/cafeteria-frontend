@@ -12,7 +12,7 @@ const LoginPage = () => {
     const navigate = useNavigate(); 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+    const [error, setError] = useState("");
   
 
   const handleLogin = async (e) => {
@@ -29,6 +29,7 @@ const LoginPage = () => {
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
       const username= response.data.username;
+      
       console.log(username);
       
       console.log("Login successful:", response.data);
@@ -133,6 +134,8 @@ const LoginPage = () => {
             placeholder="Enter your password"
           />
         </div>
+
+        
 
         <button type="submit" style={styles.button}>
           Login

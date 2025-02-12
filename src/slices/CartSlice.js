@@ -18,12 +18,12 @@ const cartSlice = createSlice({
       }
     },
     removeItem: (state, action) => {
-      const itemId = action.payload;
-      const existingItem = state.items.find((i) => i._id === itemId);
+      const item = action.payload;
+      const existingItem = state.items.find((i) => i._id === item._id);
       if (existingItem.quantity > 1) {
         existingItem.quantity -= 1; 
       } else {
-        state.items = state.items.filter((i) => i._id !== itemId); 
+        state.items = state.items.filter((i) => i._id !== item._id); 
       }
     },
     setCart: (state, {payload}) => {

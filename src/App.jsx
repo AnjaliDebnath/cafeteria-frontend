@@ -12,6 +12,7 @@ import './App.css'
 import CounterDishes from './pages/CounterDishes';
 import Register from './pages/Register';
 import LoginPage from './pages/LoginPage';
+import AdminProfile from './pages/AdminProfile';
 
 function App() {
   
@@ -21,6 +22,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element= {<Home/>}/>
+        <Route path='/admin' element= {<AdminProfile/>}/>
         <Route path='/counter' element= {<Counter/>}/>
         <Route path='/counterDishes' element= {<CounterDishes/>}/>
         <Route path='/cart' element= {<Cart/>}/>
